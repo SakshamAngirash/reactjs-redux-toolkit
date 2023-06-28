@@ -198,30 +198,235 @@ const Book = (props) => {
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<BookList></BookList>);*/
 
-const firstBook = {
-  author: "Morgan Housel",
-  title: "The Psychology of Money",
-  img: "./images/Book1.jpg",
+// setting up a proper list of book that we gonna use in our projects
+
+//lets create an array of books
+/*const books = [
+  {
+    author: "Morgan Housel",
+    title: "The Psychology of Money",
+    img: "./images/Book1.jpg",
+    id: 1,
+  },
+  {
+    author: "Joseph Murphy ",
+    title: "The Power of Your Subconscious Mind ",
+    img: "./images/Book2.jpg",
+    id: 2,
+  },
+];*/
+
+/*const names = ["saksham", "niharika", "antriksh"];
+
+const newNames = names.map((name) => {
+  console.log(name);
+  return <h1>{name}</h1>;
+});*/
+
+/*
+const BookList = () => {
+  return (
+    <section className="booklist">
+      {books.map((book) => {
+        const { img, title, author, id } = book;
+        return <Book ig={img} title={title} atr={author} key={id} />;
+      })}
+    </section>
+  );
 };
-const secondBook = {
-  author: "Joseph Murphy ",
-  title: "The Power of Your Subconscious Mind ",
-  img: "./images/Book2.jpg",
+
+const Book = (props) => {
+  console.log(props);
+  const { ig, title, atr } = props;
+  return (
+    <article className="book">
+      <img src={ig} alt={title} />
+      <h2>{title}</h2>
+      <h4>{atr}</h4>
+    </article>
+  );
 };
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<BookList></BookList>);
+
+
+*/
+
+//spread operator
+
+/*const books = [
+  {
+    author: "Morgan Housel",
+    title: "The Psychology of Money",
+    img: "./images/Book1.jpg",
+    id: 1,
+  },
+  {
+    author: "Joseph Murphy ",
+    title: "The Power of Your Subconscious Mind ",
+    img: "./images/Book2.jpg",
+    id: 2,
+  },
+];
 
 const BookList = () => {
   return (
     <section className="booklist">
-      <Book
-        atr={firstBook.author}
-        title={firstBook.title}
-        img={firstBook.img}
-      />
-      <Book
-        atr={secondBook.author}
-        title={secondBook.title}
-        img={secondBook.img}
-      />
+      {books.map((book) => {
+        return <Book {...book} key={book.id} />;
+      })}
+    </section>
+  );
+};
+
+const Book = (props) => {
+  console.log(props);
+  const { img, title, atr } = props;
+  return (
+    <article className="book">
+      <img src={img} alt={title} />
+      <h2>{title}</h2>
+      <h4>{atr}</h4>
+    </article>
+  );
+};
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<BookList></BookList>);
+*/
+
+//Events
+/*
+const books = [
+  {
+    author: "Morgan Housel",
+    title: "The Psychology of Money",
+    img: "./images/Book1.jpg",
+    id: 1,
+  },
+  {
+    author: "Joseph Murphy ",
+    title: "The Power of Your Subconscious Mind ",
+    img: "./images/Book2.jpg",
+    id: 2,
+  },
+];
+
+const BookList = () => {
+  return (
+    <section className="booklist">
+      <EventExample />
+      {books.map((book) => {
+        return <Book {...book} key={book.id} />;
+      })}
+    </section>
+  );
+};
+
+const EventExample = () => {
+  const handleForInput = (e) => {
+    console.log(e.target);
+    console.log(e.target.name);
+    console.log(e.target.value);
+    console.log("Handle form Input");
+  };
+  const handleButtonClick = () => {
+    alert("Handle button Click ");
+  };
+  const handleForSubmission = (e) => {
+    e.preventDefault();
+    console.log("Form Submitted");
+  };
+  return (
+    <section>
+      <form onSubmit={handleForSubmission}>
+        <h2>Typical Form</h2>
+        <input
+          type="text"
+          name="example"
+          onChange={handleForInput}
+          style={{ margin: "1rem 0" }}
+        />
+      </form>
+      <button onClick={handleButtonClick}>Click me</button>
+    </section>
+  );
+};
+
+const Book = (props) => {
+  console.log(props);
+  const { img, title, atr } = props;
+  return (
+    <article className="book">
+      <img src={img} alt={title} />
+      <h2>{title}</h2>
+      <h4>{atr}</h4>
+    </article>
+  );
+};
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<BookList></BookList>);
+*/
+
+//Collecting Information from submissions
+
+const books = [
+  {
+    author: "Morgan Housel",
+    title: "The Psychology of Money",
+    img: "./images/Book1.jpg",
+    id: 1,
+  },
+  {
+    author: "Joseph Murphy ",
+    title: "The Power of Your Subconscious Mind ",
+    img: "./images/Book2.jpg",
+    id: 2,
+  },
+];
+
+const BookList = () => {
+  return (
+    <section className="booklist">
+      <EventExample />
+      {books.map((book) => {
+        return <Book {...book} key={book.id} />;
+      })}
+    </section>
+  );
+};
+
+const EventExample = () => {
+  const handleForInput = (e) => {
+    console.log(e.target);
+    console.log(e.target.name);
+    console.log(e.target.value);
+    console.log("Handle form Input");
+  };
+  const handleButtonClick = () => {
+    alert("Handle button Click ");
+  };
+  const handleForSubmission = (e) => {
+    e.preventDefault();
+    console.log("Form Submitted");
+  };
+  return (
+    <section>
+      <form onSubmit={handleForSubmission}>
+        <h2>Typical Form</h2>
+        <input
+          type="text"
+          name="example"
+          onChange={handleForInput}
+          style={{ margin: "1rem 0" }}
+        />
+        <button type="submit">SUBMIT</button>
+        <div>
+          <button onClick={handleButtonClick}>Click me</button>
+        </div>
+      </form>
     </section>
   );
 };
